@@ -1,0 +1,214 @@
+.vcard-form-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.vcard-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-group {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.company-group {
+    border-color: rgba(82, 113, 255, 0.3);
+}
+
+.individual-group {
+    border-color: rgba(46, 160, 67, 0.25);
+}
+
+.group-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.company-group .group-header {
+    color: var(--accent-primary);
+}
+
+.individual-group .group-header {
+    color: var(--accent-success);
+}
+
+.group-tag {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: auto;
+    letter-spacing: 0.02em;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.form-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-field label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+
+.form-field input,
+.form-field textarea {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.55rem 0.75rem;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    transition: border-color var(--transition-fast);
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(82, 113, 255, 0.12);
+}
+
+.form-field.has-error input,
+.form-field.has-error textarea {
+    border-color: var(--accent-danger);
+}
+
+.field-error {
+    font-size: 0.75rem;
+    color: var(--accent-danger);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.group-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.25rem;
+}
+
+/* Reuse action-btn style from QRPreview */
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.action-btn.primary {
+    background: var(--accent-primary);
+    color: white;
+}
+
+.action-btn.primary:hover:not(:disabled) {
+    background: var(--accent-primary-hover);
+    box-shadow: 0 4px 12px rgba(82, 113, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.action-btn.primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+}
+
+.action-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(82, 113, 255, 0.4);
+}
+
+.action-btn.success {
+    background: rgba(46, 160, 67, 0.15);
+    border: 1px solid rgba(46, 160, 67, 0.4);
+    color: var(--accent-success);
+}
+
+.vcard-result {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.vcard-result::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 10%;
+    bottom: 10%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--border-color), transparent);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: -1rem;
+    padding-left: 0.5rem;
+    color: var(--text-main);
+}
+
+.section-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+@media (max-width: 860px) {
+    .vcard-form-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .vcard-result::before {
+        display: none;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-field.full-width {
+        grid-column: 1;
+    }
+}

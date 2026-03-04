@@ -1,0 +1,261 @@
+.company-grid-section {
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.company-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.company-card-wrapper:hover {
+    border-color: rgba(82, 113, 255, 0.3);
+    box-shadow: var(--shadow-sm);
+}
+
+.company-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.company-card-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(82, 113, 255, 0.1);
+    color: var(--accent-primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.company-card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.company-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.company-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.company-card-actions {
+    display: flex;
+    gap: 0.35rem;
+    align-items: center;
+}
+
+.confirm-delete {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: var(--accent-danger);
+    background: rgba(248, 81, 73, 0.08);
+    border: 1px solid rgba(248, 81, 73, 0.2);
+    border-radius: 8px;
+    padding: 0.25rem 0.5rem;
+}
+
+/* icon-btn already defined in History.css — define a local version here 
+   that won't conflict (it has the same selector so it's fine) */
+.icon-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.icon-btn:hover {
+    background: rgba(82, 113, 255, 0.1);
+    color: var(--accent-primary);
+    border-color: rgba(82, 113, 255, 0.3);
+}
+
+.icon-btn.danger:hover {
+    background: rgba(248, 81, 73, 0.1);
+    color: var(--accent-danger);
+    border-color: rgba(248, 81, 73, 0.3);
+}
+
+.icon-btn.accordion-toggle.open {
+    background: rgba(82, 113, 255, 0.1);
+    color: var(--accent-primary);
+}
+
+/* Accordion */
+.accordion {
+    border-top: 1px solid var(--border-color);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    animation: fadeInDown 0.2s ease-out;
+}
+
+.accordion-empty {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.accordion-entry {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.accordion-thumb {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 6px;
+    padding: 3px;
+    flex-shrink: 0;
+}
+
+.accordion-thumb svg {
+    width: 100%;
+    height: 100%;
+}
+
+.accordion-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.accordion-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.accordion-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.accordion-actions {
+    display: flex;
+    gap: 0.35rem;
+    align-items: center;
+}
+
+.copy-action {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.copy-feedback {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--accent-success);
+    white-space: nowrap;
+    animation: fadeInUp 0.15s ease-out;
+}
+
+.icon-btn.copied {
+    background: rgba(46, 160, 67, 0.12);
+    border-color: rgba(46, 160, 67, 0.35);
+    color: var(--accent-success);
+}
+
+.confirm-delete-entry {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.new-person-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+    background: rgba(82, 113, 255, 0.07);
+    border: 1px dashed rgba(82, 113, 255, 0.3);
+    border-radius: 8px;
+    padding: 0.45rem 0.75rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    width: 100%;
+    justify-content: center;
+}
+
+.new-person-btn:hover {
+    background: rgba(82, 113, 255, 0.14);
+    border-color: rgba(82, 113, 255, 0.5);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .company-grid {
+        grid-template-columns: 1fr;
+    }
+}
